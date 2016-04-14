@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var animatingView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +22,18 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func animate(sender: AnyObject) {
+        
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
+            self.animatingView.backgroundColor = UIColor.orangeColor()
+            
+            let center = CGPoint(x: 150, y: 150)
+            let size = CGSize(width: 200, height: 200)
+            self.animatingView.frame = CGRect(origin: center, size: size)
+            
+            }, completion: nil)
+        
+    }
 
 }
 
